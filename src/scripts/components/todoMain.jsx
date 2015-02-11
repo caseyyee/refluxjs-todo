@@ -1,14 +1,18 @@
 /** @jsx React.DOM */
+var _ = require('underscore');
 var React = require('react/addons');
 var ReactRouter = require('react-router');
+
 var TodoActions = require('../actions/actions.js');
-var TodoItem = require('./todoItem.jsx');
 var TodoStore = require('../stores/store.js');
+
+var TodoItem = require('./todoItem.jsx');
 
 
 // Renders the todo list as well as the toggle all button
 // Used in TodoApp
 var TodoMain = React.createClass({
+    showing: "all",        
     propTypes: {
         list: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     },
@@ -17,7 +21,7 @@ var TodoMain = React.createClass({
     },
     render: function() {
         var filteredList;
-        switch(this.props.showing){
+        switch(this.showing){
             case 'all':
                 filteredList = this.props.list;
                 break;

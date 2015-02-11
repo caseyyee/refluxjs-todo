@@ -1,8 +1,9 @@
 /** @jsx React.DOM */
+var _ = require('underscore');
 var React = require('react/addons');
 var ReactRouter = require('react-router');
+
 var TodoActions = require('../actions/actions.js');
-var TodoStore = require('../stores/store.js');
 
 // Renders the bottom item count, navigation bar and clearallcompleted button
 // Used in TodoApp
