@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
-var React = require('react');
-var addons = require('react-addons');
+var React = require('react/addons');
 var ReactRouter = require('react-router');
 var TodoActions = require('../actions/actions.js');
+var TodoStore = require('../stores/store.js');
 
 // Renders the bottom item count, navigation bar and clearallcompleted button
 // Used in TodoApp
@@ -14,8 +14,8 @@ var TodoFooter = React.createClass({
         var nbrcompleted = _.filter(this.props.list, "isComplete").length,
             nbrtotal = this.props.list.length,
             nbrincomplete = nbrtotal-nbrcompleted,
-            clearButtonClass = addons.classSet({hidden: nbrcompleted < 1}),
-            footerClass = addons.classSet({hidden: !nbrtotal }),
+            clearButtonClass = React.addons.classSet({hidden: nbrcompleted < 1}),
+            footerClass = React.addons.classSet({hidden: !nbrtotal }),
             completedLabel = "Clear completed (" + nbrcompleted + ")",
             itemsLeftLabel = nbrincomplete === 1 ? " item left" : " items left";
         return (

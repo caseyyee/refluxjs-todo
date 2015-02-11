@@ -1,9 +1,9 @@
 /** @jsx React.DOM */
-var React = require('react');
-var addons = require('react-addons');
+var React = require('react/addons');
 var ReactRouter = require('react-router');
 var TodoActions = require('../actions/actions.js');
 var TodoItem = require('./todoItem.jsx');
+var TodoStore = require('../stores/store.js');
 
 
 // Renders the todo list as well as the toggle all button
@@ -27,7 +27,7 @@ var TodoMain = React.createClass({
             case 'active':
                 filteredList = _.filter(this.props.list,function(item){ return !item.isComplete; });
         }
-        var classes = addons.classSet({
+        var classes = React.addons.classSet({
             "hidden": this.props.list.length < 1
         });
         return (

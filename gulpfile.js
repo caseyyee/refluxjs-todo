@@ -6,6 +6,16 @@ var watchify = require('watchify');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
+var reactify = require('reactify');
+
+gulp.task('browserify', function() {
+    var b = browserify();
+    b.transform(reactify);
+    b.add('./src/scripts/main.js');
+    return b.bundle()
+        .pipe(source('main.js'))
+        .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('js', function() {
 

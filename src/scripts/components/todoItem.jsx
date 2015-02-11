@@ -1,6 +1,5 @@
 /** @jsx React.DOM */
-var React = require('react');
-var addons = require('react-addons');
+var React = require('react/addons');
 var ReactRouter = require('react-router');
 var TodoActions = require('../actions/actions.js');
 
@@ -13,7 +12,7 @@ var TodoItem = React.createClass({
         isComplete: React.PropTypes.bool.isRequired,
         key: React.PropTypes.number
     },
-    mixins: [addons.LinkedStateMixin], // exposes this.linkState used in render
+    mixins: [React.addons.LinkedStateMixin], // exposes this.linkState used in render
     getInitialState: function() {
         return {};
     },
@@ -56,7 +55,7 @@ var TodoItem = React.createClass({
         TodoActions.removeItem(this.props.key);
     },
     render: function() {
-        var classes = addons.classSet({
+        var classes = React.addons.classSet({
             'completed': this.props.isComplete,
             'editing': this.state.isEditing
         });
