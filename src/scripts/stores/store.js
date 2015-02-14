@@ -1,5 +1,6 @@
 'use strict';
 var _ = require('underscore');
+var React = require('react');
 var Reflux = require('reflux');
 var TodoActions = require('../actions/actions.js');
 
@@ -7,17 +8,17 @@ var TodoActions = require('../actions/actions.js');
 var todoCounter = 0,
     localStorageKey = "todos";
 
-function getItemByKey(list,itemKey){
+function getItemById(list,itemId){
     return _.find(list, function(item) {
-        return item.key === itemKey;
+        return item.id === itemId;
     });
 }
 
 var TodoListStore = Reflux.createStore({
     // this will set up listeners to all publishers in TodoActions, using onKeyname (or keyname) as callbacks
     listenables: [TodoActions],
-    onEditItem: function(itemKey, newLabel) {
-        var foundItem = getItemByKey(this.list,itemKey);
+    onEditItem: function(itemId, newLabel) {
+        var foundItem = getItemById(this.list,itemId);
         if (!foundItem) {
             return;
         }
@@ -26,19 +27,19 @@ var TodoListStore = Reflux.createStore({
     },
     onAddItem: function(label) {
         this.updateList([{
-            key: todoCounter++,
+            id: todoCounter++,
             created: new Date(),
             isComplete: false,
             label: label
         }].concat(this.list));
     },
-    onRemoveItem: function(itemKey) {
+    onRemoveItem: function(itemId) {
         this.updateList(_.filter(this.list,function(item){
-            return item.key!==itemKey;
+            return item.id!==itemId;
         }));
     },
-    onToggleItem: function(itemKey) {
-        var foundItem = getItemByKey(this.list,itemKey);
+    onToggleItem: function(itemId) {
+        var foundItem = getItemById(this.list,itemId);
         if (foundItem) {
             foundItem.isComplete = !foundItem.isComplete;
             this.updateList(this.list);
@@ -68,15 +69,15 @@ var TodoListStore = Reflux.createStore({
         if (!loadedList) {
             // If no list is in localstorage, start out with a default one
             this.list = [{
-                key: todoCounter++,
+                id: todoCounter++,
                 created: new Date(),
                 isComplete: false,
                 label: 'Rule the web'
             }];
         } else {
             this.list = _.map(JSON.parse(loadedList), function(item) {
-                // just resetting the key property for each todo item
-                item.key = todoCounter++;
+                // just resetting the id property for each todo item
+                item.id = todoCounter++;
                 return item;
             });
         }

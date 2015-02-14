@@ -39,7 +39,7 @@ var TodoMain = React.createClass({
                 <input id="toggle-all" type="checkbox" onChange={this.toggleAll} />
                 <label htmlFor="toggle-all">Mark all as complete</label>
                 <ul id="todo-list">
-                    { filteredList.map(function(item){return <TodoItem label={item.label} isComplete={item.isComplete} key={item.key}/>; }) }
+                    { filteredList.map(function(item){return <TodoItem label={item.label} isComplete={item.isComplete} id={item.id} key={item.id}/>; }) }
                 </ul>
             </section>
         );

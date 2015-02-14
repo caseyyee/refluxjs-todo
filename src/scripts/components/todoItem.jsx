@@ -11,14 +11,14 @@ var TodoItem = React.createClass({
     propTypes: {
         label: React.PropTypes.string.isRequired,
         isComplete: React.PropTypes.bool.isRequired,
-        key: React.PropTypes.number
+        id: React.PropTypes.number
     },
     mixins: [React.addons.LinkedStateMixin], // exposes this.linkState used in render
     getInitialState: function() {
         return {};
     },
     handleToggle: function(evt) {
-        TodoActions.toggleItem(this.props.key);
+        TodoActions.toggleItem(this.props.id);
     },
     handleEditStart: function(evt) {
         evt.preventDefault();
@@ -47,13 +47,13 @@ var TodoItem = React.createClass({
         var text = this.state.editValue; // because of the linkState call in render, this is the contents of the field
         // unless we're not editing (escape was pressed) or text is empty, save!
         if (this.state.isEditing && text) {
-            TodoActions.editItem(this.props.key, text);
+            TodoActions.editItem(this.props.id, text);
         }
         // whatever the outcome, if we left the field we're not editing anymore
         this.setState({isEditing:false});
     },
     handleDestroy: function() {
-        TodoActions.removeItem(this.props.key);
+        TodoActions.removeItem(this.props.id);
     },
     render: function() {
         var classes = React.addons.classSet({
