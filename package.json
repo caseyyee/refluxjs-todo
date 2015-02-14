@@ -1,12 +1,8 @@
 {
-  "name": "rpi-ui",
+  "name": "refluxjs-todo",
   "version": "1.0.0",
   "description": "ReactJS + Backbone UI for RasPi controller",
   "dependencies": {
-    "backbone": "^1.1.2",
-    "backbone-react-component": "^0.7.3",
-    "bootstrap": "^3.3.2",
-    "jquery": "^2.1.3",
     "react": "^0.12.2",
     "reflux": "^0.2.5",
     "browserify-shim": "~3.8.2",
