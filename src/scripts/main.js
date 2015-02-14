@@ -7,9 +7,9 @@ var TodoApp = require('./components/todoApp.jsx');
 
 var routes = (
         <ReactRouter.Route handler={TodoApp}>
-            <ReactRouter.Route name="All" path="/" handler={TodoMain} showing="all" />
-            <ReactRouter.Route name="Completed" path="/completed" handler={TodoMain} showing="completed" />
-            <ReactRouter.Route name="Active" path="/active" handler={TodoMain} showing="active" />
+            <ReactRouter.Route name="All" path="/" handler={TodoMain("all")} />
+            <ReactRouter.Route name="Completed" path="/completed" handler={TodoMain("completed")} />
+            <ReactRouter.Route name="Active" path="/active" handler={TodoMain("active")} />
         </ReactRouter.Route>
 );
 

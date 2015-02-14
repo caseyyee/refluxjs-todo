@@ -8,7 +8,6 @@ var TodoListStore = require('../stores/store.js');
 
 var TodoHeader = require('./todoHeader.jsx');
 var TodoFooter = require('./todoFooter.jsx');
-var TodoMain = require('./todoMain.jsx');
 
 // Renders the full application
 // activeRouteHandler will always be TodoMain, but with different 'showing' prop (all/completed/active)
