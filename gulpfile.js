@@ -8,7 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var less = require('gulp-less');
 var reactify = require('reactify');
 
-gulp.task('js', function() {
+gulp.task('scripts', function() {
     var b = browserify();
     b.transform(reactify);
     b.add('./src/scripts/main.js');
@@ -17,8 +17,10 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('less', function() {
+gulp.task('styles', function() {
    gulp.src('./src/styles/main.less')
     .pipe(less())
     .pipe(gulp.dest('./dist/styles'));
 });
+
+gulp.task('default', ['scripts', 'styles']);
