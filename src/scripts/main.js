@@ -4,7 +4,6 @@ var ReactRouter = require('react-router');
 var TodoMain = require('./components/todoMain.jsx');
 var TodoApp = require('./components/todoApp.jsx');
 
-
 var routes = (
         <ReactRouter.Route handler={TodoApp}>
             <ReactRouter.Route name="All" path="/" handler={TodoMain("all")} />
