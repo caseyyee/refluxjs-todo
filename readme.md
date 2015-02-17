@@ -40,4 +40,6 @@ gulp
 
 The original TodoMVC application was created by [Mikael Brassman](https://github.com/spoike/refluxjs).
 
+Much of the Gulp task workflow was created by [Dan Tello](https://github.com/greypants/gulp-starter).
+
 Modifications (gulp workflow, fixes) by [Alex Ciarlillo](https://github.com/alexciarlillo).
