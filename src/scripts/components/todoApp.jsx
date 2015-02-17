@@ -1,4 +1,5 @@
-/** @jsx React.DOM */
+'use strict';
+
 var React = require('react');
 var Reflux = require('reflux');
 var ReactRouter = require('react-router');
