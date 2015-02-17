@@ -1,3 +1,5 @@
+dist/*
+!dist/.gitkeep
 node_modules
 npm-debug.log
-dist/
+.sublime-gulp.cache
