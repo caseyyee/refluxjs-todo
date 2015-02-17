@@ -1,5 +1,3 @@
-'use strict';
-
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var source = require('vinyl-source-stream'); // Used to stream bundle for further handling
@@ -50,12 +48,12 @@ gulp.task('styles', function() {
 });
 
 gulp.task('build', function() {
-  return buildScript('main.js', false);
+  return buildScript('main.jsx', false);
 });
  
  
 gulp.task('default', ['build'], function() {
-  return buildScript('main.js', true);
+  return buildScript('main.jsx', true);
 });
 
 
